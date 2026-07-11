@@ -18,11 +18,7 @@ class ModelRelationshipTest extends TestCase
 
     public function test_product_belongs_to_category(): void
     {
-        $category = new Category();
-        $category->name = 'Mobile';
-        $category->slug = 'mobile';
-        $category->is_active = true;
-        $category->save();
+        $category = Category::factory()->create();
 
         $brand = new Brand();
         $brand->name = 'Samsung';
@@ -157,6 +153,7 @@ class ModelRelationshipTest extends TestCase
 
     public function test_category_belongs_to_many_brands(): void
     {
+        //use factory
         $category = new Category();
         $category->name = 'Mobile';
         $category->slug = 'mobile';
