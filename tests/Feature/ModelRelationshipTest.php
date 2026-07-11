@@ -5,7 +5,6 @@ namespace Tests\Feature;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
 class ModelRelationshipTest extends TestCase
@@ -19,15 +18,9 @@ class ModelRelationshipTest extends TestCase
     {
         $category = Category::factory()->create();
 
-        $product = new Product();
-        $product->category_id = $category->id;
-        $product->title = 'Galaxy A55';
-        $product->slug = 'galaxy-a55';
-        $product->description = 'Samsung phone';
-        $product->price = 1000000;
-        $product->stock = 10;
-        $product->status = 'active';
-        $product->save();
+        $product = Product::factory()
+            ->for($category)
+            ->create();
 
         $this->assertTrue($product->category->is($category));
     }
@@ -35,57 +28,33 @@ class ModelRelationshipTest extends TestCase
 
     public function test_category_has_many_products(): void
     {
-        $category = new Category();
-        $category->name = 'Mobile';
-        $category->slug = 'mobile';
-        $category->is_active = true;
-        $category->save();
+        $category = Category::factory()->create();
 
-        $product = new Product();
-        $product->category_id = $category->id;
-        $product->title = 'Galaxy A55';
-        $product->slug = 'galaxy-a55';
-        $product->description = 'Samsung phone';
-        $product->price = 1000000;
-        $product->stock = 10;
-        $product->status = 'active';
-        $product->save();
+        $product = Product::factory()
+            ->for($category)
+            ->create();
 
         $this->assertTrue($category->products->contains($product));
     }
 
     public function test_category_belongs_to_parent_category(): void
     {
-        $parent = new Category();
-        $parent->name = 'Mobile';
-        $parent->slug = 'mobile';
-        $parent->is_active = true;
-        $parent->save();
+        $parent = Category::factory()->create();
 
-        $child = new Category();
-        $child->name = 'Samsung';
-        $child->slug = 'samsung';
-        $child->parent_id = $parent->id;
-        $child->is_active = true;
-        $child->save();
+        $child = Category::factory()->create([
+            'parent_id' => $parent->id
+        ]);
 
         $this->assertTrue($child->parent->is($parent));
     }
 
     public function test_category_has_many_children(): void
     {
-        $parent = new Category();
-        $parent->name = 'Mobile';
-        $parent->slug = 'mobile';
-        $parent->is_active = true;
-        $parent->save();
+        $parent = Category::factory()->create();
 
-        $child = new Category();
-        $child->name = 'Samsung';
-        $child->slug = 'samsung';
-        $child->parent_id = $parent->id;
-        $child->is_active = true;
-        $child->save();
+        $child = Category::factory()->create([
+            'parent_id' => $parent->id,
+        ]);
 
         $this->assertTrue($parent->children->contains($child));
     }
