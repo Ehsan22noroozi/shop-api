@@ -18,9 +18,9 @@ return new class extends Migration
                 ->constrained()
                 ->restrictOnDelete();
 
-            $table->foreignId('brand_id')
-                ->constrained()
-                ->restrictOnDelete();
+            // $table->foreignId('brand_id')
+            //     ->constrained()
+            //     ->restrictOnDelete();
 
             $table->string('title');
             $table->string('slug')->unique();
