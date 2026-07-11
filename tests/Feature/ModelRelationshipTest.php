@@ -99,4 +99,40 @@ class ModelRelationshipTest extends TestCase
 
         $this->assertTrue($category->products->contains($product));
     }
+
+    public function test_category_belongs_to_parent_category(): void
+    {
+        $parent = new Category();
+        $parent->name = 'Mobile';
+        $parent->slug = 'mobile';
+        $parent->is_active = true;
+        $parent->save();
+
+        $child = new Category();
+        $child->name = 'Samsung';
+        $child->slug = 'samsung';
+        $child->parent_id = $parent->id;
+        $child->is_active = true;
+        $child->save();
+
+        $this->assertTrue($child->parent->is($parent));
+    }
+
+    public function test_category_has_many_children(): void
+    {
+        $parent = new Category();
+        $parent->name = 'Mobile';
+        $parent->slug = 'mobile';
+        $parent->is_active = true;
+        $parent->save();
+
+        $child = new Category();
+        $child->name = 'Samsung';
+        $child->slug = 'samsung';
+        $child->parent_id = $parent->id;
+        $child->is_active = true;
+        $child->save();
+
+        $this->assertTrue($parent->children->contains($child));
+    }
 }
