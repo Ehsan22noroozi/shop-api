@@ -10,7 +10,7 @@ class Option extends Model
 {
     use HasFactory;
 
-    public function values(): HasMany
+    public function optionvalues(): HasMany
     {
         return $this->hasMany(OptionValue::class);
     }
