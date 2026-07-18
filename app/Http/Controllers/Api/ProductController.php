@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Resources\ProductResource;
 use App\Http\Requests\StoreProductRequest;
 use Illuminate\Support\Str;
+use App\Http\Requests\UpdateProductRequest;
 
 class ProductController extends Controller
 {
@@ -40,6 +41,28 @@ class ProductController extends Controller
 
         if ($request->has('option_values')) {
             $product->optionValues()->sync($request->option_values);
+        }
+
+        $product->load([
+            'category',
+            'optionValues.option'
+        ]);
+
+        return new ProductResource($product);
+    }
+
+    public function update(UpdateProductRequest $request, Product $product)
+    {
+        $data = $request->validated();
+
+        if (isset($data['title'])) {
+            $data['slug'] = Str::slug($data['title']);
+        }
+
+        $product->update($data);
+
+        if (isset($data['option_values'])) {
+            $product->optionValues()->sync($data['option_values']);
         }
 
         $product->load([

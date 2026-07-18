@@ -89,4 +89,72 @@ class ProductApiTest extends TestCase
 
         $this->assertCount(3, $product->optionValues);
     }
+
+    public function test_can_update_product(): void
+    {
+        $category = Category::factory()->create();
+
+        $product = Product::factory()
+            ->for($category)
+            ->create([
+                'title' => 'Old Product',
+                'price' => 1000,
+            ]);
+
+        $response = $this->putJson("/api/products/{$product->id}", [
+            'title' => 'Updated Product',
+            'price' => 2000,
+        ]);
+
+        $response->assertStatus(200)
+            ->assertJsonPath('data.title', 'Updated Product');
+
+        $this->assertDatabaseHas('products', [
+            'id' => $product->id,
+            'title' => 'Updated Product',
+            'price' => 2000,
+        ]);
+    }
+
+    public function test_can_update_product_option_values(): void
+    {
+        $category = Category::factory()->create();
+
+        $oldOptions = OptionValue::factory()
+            ->count(2)
+            ->create();
+
+        $newOptions = OptionValue::factory()
+            ->count(2)
+            ->create();
+
+        $product = Product::factory()
+            ->for($category)
+            ->create();
+
+        // ارتباط اولیه
+        $product->optionValues()->attach($oldOptions->pluck('id'));
+
+        $response = $this->putJson("/api/products/{$product->id}", [
+            'option_values' => $newOptions->pluck('id')->toArray(),
+        ]);
+
+        $response->assertStatus(200);
+
+        $product->refresh();
+
+        $this->assertCount(2, $product->optionValues);
+
+        $this->assertTrue(
+            $product->optionValues
+                ->pluck('id')
+                ->contains($newOptions[0]->id)
+        );
+
+        $this->assertFalse(
+            $product->optionValues
+                ->pluck('id')
+                ->contains($oldOptions[0]->id)
+        );
+    }
 }
