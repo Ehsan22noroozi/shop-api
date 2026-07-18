@@ -25,4 +25,14 @@ class Product extends Model
     {
         return $this->belongsToMany(OptionValue::class);
     }
+
+    protected $fillable = [
+        'category_id',
+        'title',
+        'slug',
+        'description',
+        'price',
+        'stock',
+        'status',
+    ];
 }
