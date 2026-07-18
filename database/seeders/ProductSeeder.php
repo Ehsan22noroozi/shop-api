@@ -34,11 +34,15 @@ class ProductSeeder extends Seeder
             'Color' => 'Black',
         ];
 
+        $optionValueIds = [];
+
         foreach ($productOptions as $option => $value) {
             $optionValue = $this->findOptionValue($option, $value);
 
-            $product->optionValues()->attach($optionValue->id);
+            $optionValueIds[] = $optionValue->id;
         }
+
+        $product->optionValues()->sync($optionValueIds);
     }
 
     private function findOptionValue($option, $value)

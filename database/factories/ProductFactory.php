@@ -4,6 +4,7 @@ namespace Database\Factories;
 
 use App\Models\Product;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Category;
 
 /**
  * @extends Factory<Product>
@@ -18,6 +19,8 @@ class ProductFactory extends Factory
     public function definition(): array
     {
         return [
+            'category_id' => Category::factory(),
+
             'title' => fake()->sentence(),
             'slug' => fake()->slug(),
             'description' => fake()->paragraph(),
