@@ -17,6 +17,7 @@ class ProductResource extends JsonResource
         return [
             'id' => $this->id,
             'title' => $this->title,
+            'subtitle' => $this->subtitle,
             'slug' => $this->slug,
             'description' => $this->description,
             'price' => $this->price,
@@ -34,6 +35,18 @@ class ProductResource extends JsonResource
                     return [
                         'option' => $optionValue->option->name,
                         'value' => $optionValue->value,
+                    ];
+                });
+            }),
+
+            'images' => $this->whenLoaded('images', function () {
+                return $this->images->map(function ($image) {
+                    return [
+                        'id' => $image->id,
+                        'path' => $image->path,
+                        'alt' => $image->alt,
+                        'is_primary' => (bool) $image->is_primary,
+                        'sort_order' => $image->sort_order,
                     ];
                 });
             }),

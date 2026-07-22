@@ -31,6 +31,7 @@ class Product extends Model
     protected $fillable = [
         'category_id',
         'title',
+        'subtitle',
         'slug',
         'description',
         'price',
@@ -41,5 +42,10 @@ class Product extends Model
     public function cartItems(): HasMany
     {
         return $this->hasMany(CartItem::class);
+    }
+
+    public function images(): HasMany
+    {
+        return $this->hasMany(ProductImage::class);
     }
 }

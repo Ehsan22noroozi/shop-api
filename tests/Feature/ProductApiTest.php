@@ -170,4 +170,39 @@ class ProductApiTest extends TestCase
             'id' => $product->id,
         ]);
     }
+
+    public function test_product_can_be_restored(): void
+    {
+        $product = Product::factory()->create();
+
+        $product->delete();
+
+        $response = $this->patchJson("/api/products/{$product->id}/restore");
+
+        $response->assertStatus(200);
+
+        $this->assertDatabaseHas('products', [
+            'id' => $product->id,
+            'deleted_at' => null,
+        ]);
+    }
+
+    public function test_product_can_have_image(): void
+    {
+        $product = Product::factory()->create();
+
+        $response = $this->postJson("/api/products/{$product->id}/images", [
+            'path' => 'products/test.jpg',
+            'alt' => 'test image',
+            'is_primary' => true,
+            'sort_order' => 1,
+        ]);
+
+        $response->assertStatus(201);
+
+        $this->assertDatabaseHas('product_images', [
+            'product_id' => $product->id,
+            'path' => 'products/test.jpg',
+        ]);
+    }
 }

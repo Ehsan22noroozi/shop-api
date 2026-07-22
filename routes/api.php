@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Api\ProductController;
 use App\Http\Controllers\Api\CategoryController;
 use App\Http\Controllers\Api\CartController;
+use App\Http\Controllers\Api\ProductImageController;
 
 
 Route::get('/user', function (Request $request) {
@@ -20,3 +21,6 @@ Route::put('/products/{product}', [ProductController::class, 'update']);
 Route::get('/cart', [CartController::class, 'index']);
 Route::post('/cart/items', [CartController::class, 'storeItem']);
 Route::delete('/products/{product}', [ProductController::class, 'destroy']);
+Route::patch('/products/{product}/restore', [ProductController::class, 'restore']);
+
+Route::post('/products/{product}/images', [ProductImageController::class, 'store']);

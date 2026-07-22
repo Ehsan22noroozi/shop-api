@@ -18,7 +18,8 @@ class ProductController extends Controller
     {
         $products = Product::with([
             'category',
-            'optionValues.option'
+            'optionValues.option',
+            'images'
         ])->get();
 
         return ProductResource::collection($products);
@@ -28,7 +29,8 @@ class ProductController extends Controller
     {
         $product->load([
             'category',
-            'optionValues.option'
+            'optionValues.option',
+            'images'
         ]);
 
         return new ProductResource($product);
@@ -48,7 +50,8 @@ class ProductController extends Controller
 
         $product->load([
             'category',
-            'optionValues.option'
+            'optionValues.option',
+            'images'
         ]);
 
         return new ProductResource($product);
@@ -70,7 +73,8 @@ class ProductController extends Controller
 
         $product->load([
             'category',
-            'optionValues.option'
+            'optionValues.option',
+            'images'
         ]);
 
         return new ProductResource($product);
@@ -83,5 +87,14 @@ class ProductController extends Controller
         return response()->json([
             'message' => 'Product deleted successfully'
         ]);
+    }
+
+    public function restore($id)
+    {
+        $product = Product::withTrashed()->findOrFail($id);
+
+        $product->restore();
+
+        return new ProductResource($product);
     }
 }
