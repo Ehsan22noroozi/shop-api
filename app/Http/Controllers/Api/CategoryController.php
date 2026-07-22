@@ -7,6 +7,9 @@ use Illuminate\Http\Request;
 use App\Models\Category;
 use App\Http\Resources\CategoryResource;
 
+/**
+ * @group Category
+ */
 class CategoryController extends Controller
 {
     public function index()

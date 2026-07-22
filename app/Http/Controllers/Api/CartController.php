@@ -9,6 +9,9 @@ use App\Http\Requests\StoreCartItemRequest;
 use App\Models\CartItem;
 use App\Models\Product;
 
+/**
+ * @group Cart
+ */
 class CartController extends Controller
 {
     public function index()

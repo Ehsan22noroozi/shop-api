@@ -157,4 +157,17 @@ class ProductApiTest extends TestCase
                 ->contains($oldOptions[0]->id)
         );
     }
+
+    public function test_product_can_be_soft_deleted(): void
+    {
+        $product = Product::factory()->create();
+
+        $response = $this->deleteJson("/api/products/{$product->id}");
+
+        $response->assertStatus(200);
+
+        $this->assertSoftDeleted('products', [
+            'id' => $product->id,
+        ]);
+    }
 }

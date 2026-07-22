@@ -9,6 +9,9 @@ use App\Http\Requests\StoreProductRequest;
 use Illuminate\Support\Str;
 use App\Http\Requests\UpdateProductRequest;
 
+/**
+ * @group Products
+ */
 class ProductController extends Controller
 {
     public function index()
@@ -71,5 +74,14 @@ class ProductController extends Controller
         ]);
 
         return new ProductResource($product);
+    }
+
+    public function destroy(Product $product)
+    {
+        $product->delete();
+
+        return response()->json([
+            'message' => 'Product deleted successfully'
+        ]);
     }
 }

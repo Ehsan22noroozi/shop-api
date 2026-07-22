@@ -19,3 +19,4 @@ Route::put('/products/{product}', [ProductController::class, 'update']);
 
 Route::get('/cart', [CartController::class, 'index']);
 Route::post('/cart/items', [CartController::class, 'storeItem']);
+Route::delete('/products/{product}', [ProductController::class, 'destroy']);

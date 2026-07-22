@@ -1,0 +1,44 @@
+name: Category
+description: ''
+endpoints:
+  -
+    custom: []
+    httpMethods:
+      - GET
+    uri: api/categories
+    metadata:
+      custom: []
+      groupName: Category
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        custom: []
+        status: 200
+        content: '{"data":[{"id":1,"name":"Mobile","slug":"mobile"},{"id":2,"name":"Laptop","slug":"laptop"},{"id":3,"name":"enim","slug":"harum-sequi-hic-nihil-odio-nemo-dolore"}]}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-cart-session: d98ed539-635b-46bc-a2c3-5f03911ab979
+          access-control-allow-origin: '*'
+        description: null
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
