@@ -30,11 +30,11 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":32,"status":"active","items":[]}}'
+        content: '{"data":{"id":53,"status":"active","items":[]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-cart-session: d9924cc9-aed7-444b-9f7d-7f23fbf8b096
+          x-cart-session: 99634754-eacb-4bf9-bfab-2e30b9614814
           access-control-allow-origin: '*'
         description: null
     responseFields: []

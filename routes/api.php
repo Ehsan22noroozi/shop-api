@@ -24,3 +24,4 @@ Route::delete('/products/{product}', [ProductController::class, 'destroy']);
 Route::patch('/products/{product}/restore', [ProductController::class, 'restore']);
 
 Route::post('/products/{product}/images', [ProductImageController::class, 'store']);
+Route::delete('/products/{product}/images/{image}', [ProductImageController::class, 'destroy']);

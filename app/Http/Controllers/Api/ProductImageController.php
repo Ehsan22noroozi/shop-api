@@ -19,4 +19,13 @@ class ProductImageController extends Controller
             'data' => $image
         ], 201);
     }
+
+    public function destroy(Product $product, ProductImage $image)
+    {
+        $image->delete();
+
+        return response()->json([
+            'message' => 'Product image deleted successfully'
+        ]);
+    }
 }

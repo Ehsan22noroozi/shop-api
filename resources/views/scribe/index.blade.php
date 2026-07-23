@@ -97,6 +97,12 @@
                                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
                                 <a href="#endpoints-GETapi-user">GET api/user</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-products--product_id--images">
+                                <a href="#endpoints-POSTapi-products--product_id--images">POST api/products/{product_id}/images</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-products--product_id--images--image_id-">
+                                <a href="#endpoints-DELETEapi-products--product_id--images--image_id-">DELETE api/products/{product_id}/images/{image_id}</a>
+                            </li>
                                                                         </ul>
                             </ul>
                     <ul id="tocify-header-products" class="tocify-header">
@@ -119,6 +125,9 @@
                                                                                 <li class="tocify-item level-2" data-unique="products-DELETEapi-products--product_id-">
                                 <a href="#products-DELETEapi-products--product_id-">DELETE api/products/{product_id}</a>
                             </li>
+                                                                                <li class="tocify-item level-2" data-unique="products-PATCHapi-products--product--restore">
+                                <a href="#products-PATCHapi-products--product--restore">PATCH api/products/{product}/restore</a>
+                            </li>
                                                                         </ul>
                             </ul>
             </div>
@@ -130,7 +139,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: July 22, 2026</li>
+        <li>Last updated: July 23, 2026</li>
     </ul>
 </div>
 
@@ -200,13 +209,13 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-cart-session: d9924cc9-aed7-444b-9f7d-7f23fbf8b096
+x-cart-session: 99634754-eacb-4bf9-bfab-2e30b9614814
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 32,
+        &quot;id&quot;: 53,
         &quot;status&quot;: &quot;active&quot;,
         &quot;items&quot;: []
     }
@@ -482,7 +491,7 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-cart-session: d98ed539-635b-46bc-a2c3-5f03911ab979
+x-cart-session: 9d22822b-91a1-43b1-a956-b3997880bb23
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -711,6 +720,339 @@ You can check the Dev Tools console for debugging information.</code></pre>
             </div>
                         </form>
 
+                    <h2 id="endpoints-POSTapi-products--product_id--images">POST api/products/{product_id}/images</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-products--product_id--images">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/products/1/images" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"path\": \"architecto\",
+    \"alt\": \"architecto\",
+    \"is_primary\": true,
+    \"sort_order\": 39
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/1/images"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "path": "architecto",
+    "alt": "architecto",
+    "is_primary": true,
+    "sort_order": 39
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-products--product_id--images">
+</span>
+<span id="execution-results-POSTapi-products--product_id--images" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-products--product_id--images"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-products--product_id--images"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-products--product_id--images" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-products--product_id--images">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-POSTapi-products--product_id--images" data-method="POST"
+      data-path="api/products/{product_id}/images"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-products--product_id--images', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-products--product_id--images"
+                    onclick="tryItOut('POSTapi-products--product_id--images');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-products--product_id--images"
+                    onclick="cancelTryOut('POSTapi-products--product_id--images');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-products--product_id--images"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/products/{product_id}/images</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="POSTapi-products--product_id--images"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="POSTapi-products--product_id--images"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="product_id"                data-endpoint="POSTapi-products--product_id--images"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the product. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>path</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="path"                data-endpoint="POSTapi-products--product_id--images"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>alt</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="alt"                data-endpoint="POSTapi-products--product_id--images"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>is_primary</code></b>&nbsp;&nbsp;
+<small>boolean</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <label data-endpoint="POSTapi-products--product_id--images" style="display: none">
+            <input type="radio" name="is_primary"
+                   value="true"
+                   data-endpoint="POSTapi-products--product_id--images"
+                   data-component="body"             >
+            <code>true</code>
+        </label>
+        <label data-endpoint="POSTapi-products--product_id--images" style="display: none">
+            <input type="radio" name="is_primary"
+                   value="false"
+                   data-endpoint="POSTapi-products--product_id--images"
+                   data-component="body"             >
+            <code>false</code>
+        </label>
+    <br>
+<p>Example: <code>true</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>sort_order</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="sort_order"                data-endpoint="POSTapi-products--product_id--images"
+               value="39"
+               data-component="body">
+    <br>
+<p>Must be at least 0. Example: <code>39</code></p>
+        </div>
+        </form>
+
+                    <h2 id="endpoints-DELETEapi-products--product_id--images--image_id-">DELETE api/products/{product_id}/images/{image_id}</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-products--product_id--images--image_id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/products/1/images/16" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/1/images/16"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-products--product_id--images--image_id-">
+</span>
+<span id="execution-results-DELETEapi-products--product_id--images--image_id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-products--product_id--images--image_id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-products--product_id--images--image_id-"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-products--product_id--images--image_id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-products--product_id--images--image_id-">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-DELETEapi-products--product_id--images--image_id-" data-method="DELETE"
+      data-path="api/products/{product_id}/images/{image_id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-products--product_id--images--image_id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-products--product_id--images--image_id-"
+                    onclick="tryItOut('DELETEapi-products--product_id--images--image_id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-products--product_id--images--image_id-"
+                    onclick="cancelTryOut('DELETEapi-products--product_id--images--image_id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-products--product_id--images--image_id-"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/products/{product_id}/images/{image_id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="DELETEapi-products--product_id--images--image_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="DELETEapi-products--product_id--images--image_id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>product_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="product_id"                data-endpoint="DELETEapi-products--product_id--images--image_id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the product. Example: <code>1</code></p>
+            </div>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>image_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="image_id"                data-endpoint="DELETEapi-products--product_id--images--image_id-"
+               value="16"
+               data-component="url">
+    <br>
+<p>The ID of the image. Example: <code>16</code></p>
+            </div>
+                    </form>
+
                 <h1 id="products">Products</h1>
 
     
@@ -761,15 +1103,44 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-cart-session: c2164550-3703-4e12-bf7b-b4404a90f700
+x-cart-session: 932e1789-dc23-4040-af69-ee5eb6981d94
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
+            &quot;id&quot;: 1,
+            &quot;title&quot;: &quot;iphone 17&quot;,
+            &quot;subtitle&quot;: null,
+            &quot;slug&quot;: &quot;iphone-17&quot;,
+            &quot;description&quot;: &quot;Apple iPhone 16 Pro&quot;,
+            &quot;price&quot;: &quot;1500.00&quot;,
+            &quot;stock&quot;: 10,
+            &quot;category&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Mobile&quot;
+            },
+            &quot;options&quot;: [
+                {
+                    &quot;option&quot;: &quot;Color&quot;,
+                    &quot;value&quot;: &quot;Black&quot;
+                },
+                {
+                    &quot;option&quot;: &quot;Storage&quot;,
+                    &quot;value&quot;: &quot;256GB&quot;
+                },
+                {
+                    &quot;option&quot;: &quot;Brand&quot;,
+                    &quot;value&quot;: &quot;Apple&quot;
+                }
+            ],
+            &quot;images&quot;: []
+        },
+        {
             &quot;id&quot;: 7,
             &quot;title&quot;: &quot;iPhone 17 Pro Up&quot;,
+            &quot;subtitle&quot;: &quot;256GB Natural Titanium&quot;,
             &quot;slug&quot;: &quot;iphone-17-pro-up&quot;,
             &quot;description&quot;: &quot;Apple new phone&quot;,
             &quot;price&quot;: &quot;80000000.00&quot;,
@@ -791,11 +1162,13 @@ access-control-allow-origin: *
                     &quot;option&quot;: &quot;Color&quot;,
                     &quot;value&quot;: &quot;blue&quot;
                 }
-            ]
+            ],
+            &quot;images&quot;: []
         },
         {
             &quot;id&quot;: 8,
             &quot;title&quot;: &quot;iPhone 17 Pro&quot;,
+            &quot;subtitle&quot;: null,
             &quot;slug&quot;: &quot;iphone-17-pro&quot;,
             &quot;description&quot;: &quot;Apple new phone&quot;,
             &quot;price&quot;: &quot;70000000.00&quot;,
@@ -817,7 +1190,53 @@ access-control-allow-origin: *
                     &quot;option&quot;: &quot;Brand&quot;,
                     &quot;value&quot;: &quot;Apple&quot;
                 }
-            ]
+            ],
+            &quot;images&quot;: []
+        },
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;Test Product&quot;,
+            &quot;subtitle&quot;: null,
+            &quot;slug&quot;: &quot;test-product&quot;,
+            &quot;description&quot;: &quot;Test Description&quot;,
+            &quot;price&quot;: &quot;1000.00&quot;,
+            &quot;stock&quot;: 10,
+            &quot;category&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Mobile&quot;
+            },
+            &quot;options&quot;: [],
+            &quot;images&quot;: []
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;iPhone 18 Pro&quot;,
+            &quot;subtitle&quot;: &quot;512GB Black&quot;,
+            &quot;slug&quot;: &quot;iphone-18-pro&quot;,
+            &quot;description&quot;: &quot;New phone&quot;,
+            &quot;price&quot;: &quot;90000000.00&quot;,
+            &quot;stock&quot;: 5,
+            &quot;category&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Mobile&quot;
+            },
+            &quot;options&quot;: [],
+            &quot;images&quot;: []
+        },
+        {
+            &quot;id&quot;: 13,
+            &quot;title&quot;: &quot;iPhone 18&quot;,
+            &quot;subtitle&quot;: &quot;512GB Black&quot;,
+            &quot;slug&quot;: &quot;iphone-18&quot;,
+            &quot;description&quot;: &quot;New phone&quot;,
+            &quot;price&quot;: &quot;90000000.00&quot;,
+            &quot;stock&quot;: 5,
+            &quot;category&quot;: {
+                &quot;id&quot;: 1,
+                &quot;name&quot;: &quot;Mobile&quot;
+            },
+            &quot;options&quot;: [],
+            &quot;images&quot;: []
         }
     ]
 }</code>
@@ -909,14 +1328,14 @@ You can check the Dev Tools console for debugging information.</code></pre>
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/products/7" \
+    --get "http://localhost/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/7"
+    "http://localhost/api/products/1"
 );
 
 const headers = {
@@ -942,23 +1361,28 @@ fetch(url, {
             </summary>
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
-x-cart-session: 07bda5f5-c1ea-4af9-ba5b-1cb5569b7a4e
+x-cart-session: 8251e562-fcc9-4b7c-b797-39f5289ad848
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: {
-        &quot;id&quot;: 7,
-        &quot;title&quot;: &quot;iPhone 17 Pro Up&quot;,
-        &quot;slug&quot;: &quot;iphone-17-pro-up&quot;,
-        &quot;description&quot;: &quot;Apple new phone&quot;,
-        &quot;price&quot;: &quot;80000000.00&quot;,
-        &quot;stock&quot;: 5,
+        &quot;id&quot;: 1,
+        &quot;title&quot;: &quot;iphone 17&quot;,
+        &quot;subtitle&quot;: null,
+        &quot;slug&quot;: &quot;iphone-17&quot;,
+        &quot;description&quot;: &quot;Apple iPhone 16 Pro&quot;,
+        &quot;price&quot;: &quot;1500.00&quot;,
+        &quot;stock&quot;: 10,
         &quot;category&quot;: {
             &quot;id&quot;: 1,
             &quot;name&quot;: &quot;Mobile&quot;
         },
         &quot;options&quot;: [
+            {
+                &quot;option&quot;: &quot;Color&quot;,
+                &quot;value&quot;: &quot;Black&quot;
+            },
             {
                 &quot;option&quot;: &quot;Storage&quot;,
                 &quot;value&quot;: &quot;256GB&quot;
@@ -966,12 +1390,9 @@ access-control-allow-origin: *
             {
                 &quot;option&quot;: &quot;Brand&quot;,
                 &quot;value&quot;: &quot;Apple&quot;
-            },
-            {
-                &quot;option&quot;: &quot;Color&quot;,
-                &quot;value&quot;: &quot;blue&quot;
             }
-        ]
+        ],
+        &quot;images&quot;: []
     }
 }</code>
  </pre>
@@ -1055,10 +1476,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="GETapi-products--product_id-"
-               value="7"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>7</code></p>
+<p>The ID of the product. Example: <code>1</code></p>
             </div>
                     </form>
 
@@ -1080,11 +1501,12 @@ You can check the Dev Tools console for debugging information.</code></pre>
     --header "Accept: application/json" \
     --data "{
     \"title\": \"architecto\",
+    \"subtitle\": \"architecto\",
     \"category_id\": \"architecto\",
     \"description\": \"Eius et animi quos velit et.\",
     \"price\": 4326.41688,
     \"stock\": 77,
-    \"status\": \"inactive\"
+    \"status\": \"active\"
 }"
 </code></pre></div>
 
@@ -1101,11 +1523,12 @@ const headers = {
 
 let body = {
     "title": "architecto",
+    "subtitle": "architecto",
     "category_id": "architecto",
     "description": "Eius et animi quos velit et.",
     "price": 4326.41688,
     "stock": 77,
-    "status": "inactive"
+    "status": "active"
 };
 
 fetch(url, {
@@ -1203,6 +1626,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
 <p>Example: <code>architecto</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>subtitle</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="subtitle"                data-endpoint="POSTapi-products"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>category_id</code></b>&nbsp;&nbsp;
 <small>string</small>&nbsp;
  &nbsp;
@@ -1257,10 +1692,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="POSTapi-products"
-               value="inactive"
+               value="active"
                data-component="body">
     <br>
-<p>Example: <code>inactive</code></p>
+<p>Example: <code>active</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>active</code></li> <li><code>inactive</code></li></ul>
         </div>
@@ -1293,22 +1728,23 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request PUT \
-    "http://localhost/api/products/7" \
+    "http://localhost/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
     \"title\": \"architecto\",
+    \"subtitle\": \"architecto\",
     \"description\": \"Eius et animi quos velit et.\",
     \"price\": 4326.41688,
     \"stock\": 77,
-    \"status\": \"active\"
+    \"status\": \"inactive\"
 }"
 </code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/7"
+    "http://localhost/api/products/1"
 );
 
 const headers = {
@@ -1318,10 +1754,11 @@ const headers = {
 
 let body = {
     "title": "architecto",
+    "subtitle": "architecto",
     "description": "Eius et animi quos velit et.",
     "price": 4326.41688,
     "stock": 77,
-    "status": "active"
+    "status": "inactive"
 };
 
 fetch(url, {
@@ -1413,10 +1850,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="PUTapi-products--product_id-"
-               value="7"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>7</code></p>
+<p>The ID of the product. Example: <code>1</code></p>
             </div>
                             <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
         <div style=" padding-left: 28px;  clear: unset;">
@@ -1426,6 +1863,18 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="title"                data-endpoint="PUTapi-products--product_id-"
+               value="architecto"
+               data-component="body">
+    <br>
+<p>Example: <code>architecto</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>subtitle</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="subtitle"                data-endpoint="PUTapi-products--product_id-"
                value="architecto"
                data-component="body">
     <br>
@@ -1486,10 +1935,10 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="text" style="display: none"
                               name="status"                data-endpoint="PUTapi-products--product_id-"
-               value="active"
+               value="inactive"
                data-component="body">
     <br>
-<p>Example: <code>active</code></p>
+<p>Example: <code>inactive</code></p>
 Must be one of:
 <ul style="list-style-type: square;"><li><code>active</code></li> <li><code>inactive</code></li></ul>
         </div>
@@ -1522,14 +1971,14 @@ Must be one of:
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/products/7" \
+    "http://localhost/api/products/1" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/products/7"
+    "http://localhost/api/products/1"
 );
 
 const headers = {
@@ -1626,10 +2075,134 @@ You can check the Dev Tools console for debugging information.</code></pre>
  &nbsp;
                 <input type="number" style="display: none"
                step="any"               name="product_id"                data-endpoint="DELETEapi-products--product_id-"
-               value="7"
+               value="1"
                data-component="url">
     <br>
-<p>The ID of the product. Example: <code>7</code></p>
+<p>The ID of the product. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="products-PATCHapi-products--product--restore">PATCH api/products/{product}/restore</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PATCHapi-products--product--restore">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PATCH \
+    "http://localhost/api/products/1/restore" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/products/1/restore"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+
+fetch(url, {
+    method: "PATCH",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PATCHapi-products--product--restore">
+</span>
+<span id="execution-results-PATCHapi-products--product--restore" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PATCHapi-products--product--restore"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PATCHapi-products--product--restore"
+      data-empty-response-text="<Empty response>" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PATCHapi-products--product--restore" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PATCHapi-products--product--restore">
+
+Tip: Check that you&#039;re properly connected to the network.
+If you&#039;re a maintainer of ths API, verify that your API is running and you&#039;ve enabled CORS.
+You can check the Dev Tools console for debugging information.</code></pre>
+</span>
+<form id="form-PATCHapi-products--product--restore" data-method="PATCH"
+      data-path="api/products/{product}/restore"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-products--product--restore', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PATCHapi-products--product--restore"
+                    onclick="tryItOut('PATCHapi-products--product--restore');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PATCHapi-products--product--restore"
+                    onclick="cancelTryOut('PATCHapi-products--product--restore');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PATCHapi-products--product--restore"
+                    data-initial-text="Send Request 💥"
+                    data-loading-text="⏱ Sending..."
+                    hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/products/{product}/restore</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Content-Type"                data-endpoint="PATCHapi-products--product--restore"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+                              name="Accept"                data-endpoint="PATCHapi-products--product--restore"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>product</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               step="any"               name="product"                data-endpoint="PATCHapi-products--product--restore"
+               value="1"
+               data-component="url">
+    <br>
+<p>The product. Example: <code>1</code></p>
             </div>
                     </form>
 

@@ -205,4 +205,43 @@ class ProductApiTest extends TestCase
             'path' => 'products/test.jpg',
         ]);
     }
+
+    public function test_product_can_add_image(): void
+    {
+        $product = Product::factory()->create();
+
+        $response = $this->postJson("/api/products/{$product->id}/images", [
+            'path' => 'products/test.jpg',
+            'alt' => 'test image',
+            'is_primary' => true,
+            'sort_order' => 1,
+        ]);
+
+        $response->assertStatus(201);
+
+        $this->assertDatabaseHas('product_images', [
+            'product_id' => $product->id,
+            'path' => 'products/test.jpg',
+        ]);
+    }
+
+    public function test_product_image_can_be_deleted(): void
+    {
+        $product = Product::factory()->create();
+
+        $image = $product->images()->create([
+            'path' => 'products/test.jpg',
+            'alt' => 'test',
+        ]);
+
+        $response = $this->deleteJson(
+            "/api/products/{$product->id}/images/{$image->id}"
+        );
+
+        $response->assertStatus(200);
+
+        $this->assertDatabaseMissing('product_images', [
+            'id' => $image->id,
+        ]);
+    }
 }

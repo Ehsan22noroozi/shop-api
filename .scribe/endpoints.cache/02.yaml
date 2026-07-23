@@ -36,7 +36,7 @@ endpoints:
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-cart-session: d98ed539-635b-46bc-a2c3-5f03911ab979
+          x-cart-session: 9d22822b-91a1-43b1-a956-b3997880bb23
           access-control-allow-origin: '*'
         description: null
     responseFields: []

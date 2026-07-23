@@ -32,11 +32,11 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":[{"id":7,"title":"iPhone 17 Pro Up","slug":"iphone-17-pro-up","description":"Apple new phone","price":"80000000.00","stock":5,"category":{"id":1,"name":"Mobile"},"options":[{"option":"Storage","value":"256GB"},{"option":"Brand","value":"Apple"},{"option":"Color","value":"blue"}]},{"id":8,"title":"iPhone 17 Pro","slug":"iphone-17-pro","description":"Apple new phone","price":"70000000.00","stock":5,"category":{"id":1,"name":"Mobile"},"options":[{"option":"Color","value":"Black"},{"option":"Storage","value":"256GB"},{"option":"Brand","value":"Apple"}]}]}'
+        content: '{"data":[{"id":1,"title":"iphone 17","subtitle":null,"slug":"iphone-17","description":"Apple iPhone 16 Pro","price":"1500.00","stock":10,"category":{"id":1,"name":"Mobile"},"options":[{"option":"Color","value":"Black"},{"option":"Storage","value":"256GB"},{"option":"Brand","value":"Apple"}],"images":[]},{"id":7,"title":"iPhone 17 Pro Up","subtitle":"256GB Natural Titanium","slug":"iphone-17-pro-up","description":"Apple new phone","price":"80000000.00","stock":5,"category":{"id":1,"name":"Mobile"},"options":[{"option":"Storage","value":"256GB"},{"option":"Brand","value":"Apple"},{"option":"Color","value":"blue"}],"images":[]},{"id":8,"title":"iPhone 17 Pro","subtitle":null,"slug":"iphone-17-pro","description":"Apple new phone","price":"70000000.00","stock":5,"category":{"id":1,"name":"Mobile"},"options":[{"option":"Color","value":"Black"},{"option":"Storage","value":"256GB"},{"option":"Brand","value":"Apple"}],"images":[]},{"id":9,"title":"Test Product","subtitle":null,"slug":"test-product","description":"Test Description","price":"1000.00","stock":10,"category":{"id":1,"name":"Mobile"},"options":[],"images":[]},{"id":10,"title":"iPhone 18 Pro","subtitle":"512GB Black","slug":"iphone-18-pro","description":"New phone","price":"90000000.00","stock":5,"category":{"id":1,"name":"Mobile"},"options":[],"images":[]},{"id":13,"title":"iPhone 18","subtitle":"512GB Black","slug":"iphone-18","description":"New phone","price":"90000000.00","stock":5,"category":{"id":1,"name":"Mobile"},"options":[],"images":[]}]}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-cart-session: c2164550-3703-4e12-bf7b-b4404a90f700
+          x-cart-session: 932e1789-dc23-4040-af69-ee5eb6981d94
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -68,14 +68,14 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      product_id: 7
+      product_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -85,11 +85,11 @@ endpoints:
       -
         custom: []
         status: 200
-        content: '{"data":{"id":7,"title":"iPhone 17 Pro Up","slug":"iphone-17-pro-up","description":"Apple new phone","price":"80000000.00","stock":5,"category":{"id":1,"name":"Mobile"},"options":[{"option":"Storage","value":"256GB"},{"option":"Brand","value":"Apple"},{"option":"Color","value":"blue"}]}}'
+        content: '{"data":{"id":1,"title":"iphone 17","subtitle":null,"slug":"iphone-17","description":"Apple iPhone 16 Pro","price":"1500.00","stock":10,"category":{"id":1,"name":"Mobile"},"options":[{"option":"Color","value":"Black"},{"option":"Storage","value":"256GB"},{"option":"Brand","value":"Apple"}],"images":[]}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
-          x-cart-session: 07bda5f5-c1ea-4af9-ba5b-1cb5569b7a4e
+          x-cart-session: 8251e562-fcc9-4b7c-b797-39f5289ad848
           access-control-allow-origin: '*'
         description: null
     responseFields: []
@@ -131,6 +131,17 @@ endpoints:
         exampleWasSpecified: false
         nullable: false
         deprecated: false
+      subtitle:
+        custom: []
+        name: subtitle
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
+        deprecated: false
       category_id:
         custom: []
         name: category_id
@@ -180,7 +191,7 @@ endpoints:
         name: status
         description: ''
         required: true
-        example: inactive
+        example: active
         type: string
         enumValues:
           - active
@@ -201,11 +212,12 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       title: architecto
+      subtitle: architecto
       category_id: architecto
       description: 'Eius et animi quos velit et.'
       price: 4326.41688
       stock: 77
-      status: inactive
+      status: active
     fileParameters: []
     responses: []
     responseFields: []
@@ -237,14 +249,14 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      product_id: 7
+      product_id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
@@ -258,6 +270,17 @@ endpoints:
         enumValues: []
         exampleWasSpecified: false
         nullable: false
+        deprecated: false
+      subtitle:
+        custom: []
+        name: subtitle
+        description: ''
+        required: false
+        example: architecto
+        type: string
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: true
         deprecated: false
       category_id:
         custom: []
@@ -308,7 +331,7 @@ endpoints:
         name: status
         description: ''
         required: false
-        example: active
+        example: inactive
         type: string
         enumValues:
           - active
@@ -329,10 +352,11 @@ endpoints:
         deprecated: false
     cleanBodyParameters:
       title: architecto
+      subtitle: architecto
       description: 'Eius et animi quos velit et.'
       price: 4326.41688
       stock: 77
-      status: active
+      status: inactive
     fileParameters: []
     responses: []
     responseFields: []
@@ -364,14 +388,57 @@ endpoints:
         name: product_id
         description: 'The ID of the product.'
         required: true
-        example: 7
+        example: 1
         type: integer
         enumValues: []
         exampleWasSpecified: false
         nullable: false
         deprecated: false
     cleanUrlParameters:
-      product_id: 7
+      product_id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+  -
+    custom: []
+    httpMethods:
+      - PATCH
+    uri: 'api/products/{product}/restore'
+    metadata:
+      custom: []
+      groupName: Products
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      deprecated: false
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      product:
+        custom: []
+        name: product
+        description: 'The product.'
+        required: true
+        example: 1
+        type: integer
+        enumValues: []
+        exampleWasSpecified: false
+        nullable: false
+        deprecated: false
+    cleanUrlParameters:
+      product: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
